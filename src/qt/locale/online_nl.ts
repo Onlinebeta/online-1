@@ -3128,7 +3128,7 @@ Adres: %4
         <translation>Verbind door SOCKS5 proxy</translation>
     </message>
     <message>
-        <source>Copyright (C) 2009-%i The Online Core Developers</source>
+        <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
         <translation>Auteursrecht (C) 2009-%i De Online Core Ontwikkelaars</translation>
     </message>
     <message>

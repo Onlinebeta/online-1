@@ -3150,7 +3150,7 @@ Beispiel: alertnotify=echo %%s | mail -s "Online Alert" admin@foo.com
         <translation>Über einen SOCKS5-Proxy &amp;verbinden</translation>
     </message>
     <message>
-        <source>Copyright (C) 2009-%i The Online Core Developers</source>
+        <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
         <translation>Urheberrecht (C) 2009-%i Die "Online Core"-Entwickler</translation>
     </message>
     <message>

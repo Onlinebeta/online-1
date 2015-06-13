@@ -3054,8 +3054,8 @@ por exemplo: alertnotify=echo %%s | mail -s "Alerta do Online" admin@foo.com.br
         <translation>Connecte-se através de um proxy SOCKS5</translation>
     </message>
     <message>
-        <source>Copyright (C) 2009-%i The Online Core Developers</source>
-        <translation>Copyright (C) 2009-%i Desenvolvedores Online Core</translation>
+        <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
+        <translation>Copyright (C) 2009-%i Desenvolvedores Bitcoin Core</translation>
     </message>
     <message>
         <source>Could not parse -rpcbind value %s as network address</source>

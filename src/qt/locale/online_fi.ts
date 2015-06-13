@@ -2978,8 +2978,8 @@ Osoite: %4</translation>
         <translation>Yhdistä SOCKS5 proxin kautta</translation>
     </message>
     <message>
-        <source>Copyright (C) 2009-%i The Online Core Developers</source>
-        <translation>Copyright (C) 2009-%i  Online kehittäjät</translation>
+        <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
+        <translation>Copyright (C) 2009-%i  Bitcoin kehittäjät</translation>
     </message>
     <message>
         <source>Error loading wallet.dat: Wallet requires newer version of Online Core</source>

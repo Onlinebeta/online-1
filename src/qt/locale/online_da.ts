@@ -2121,7 +2121,7 @@ Adresse: %4
     </message>
     <message>
         <source>A message that was attached to the online: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Online network.</source>
-        <translation>En besked, som blev føjet til "bitcon:"-URI'en, som vil gemmes med transaktionen til din reference. Bemærk: Denne besked vil ikke blive sendt over Online-netværket.</translation>
+        <translation>En besked, som blev føjet til "online:"-URI'en, som vil gemmes med transaktionen til din reference. Bemærk: Denne besked vil ikke blive sendt over Online-netværket.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -3147,7 +3147,7 @@ for eksempel: alertnotify=echo %%s | mail -s "Online Alert" admin@foo.com
         <translation>Forbind gennem SOCKS5-proxy</translation>
     </message>
     <message>
-        <source>Copyright (C) 2009-%i The Online Core Developers</source>
+        <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
         <translation>Ophavsret © 2009-%i Udviklerne af Online Core</translation>
     </message>
     <message>

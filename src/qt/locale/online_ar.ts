@@ -67,11 +67,11 @@
     </message>
     <message>
         <source>These are your Online addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>هذه هي عناوين Bitcion التابعة لك من أجل إرسال الدفعات. تحقق دائما من المبلغ و عنوان المرسل المستقبل قبل إرسال العملات</translation>
+        <translation>هذه هي عناوين online التابعة لك من أجل إرسال الدفعات. تحقق دائما من المبلغ و عنوان المرسل المستقبل قبل إرسال العملات</translation>
     </message>
     <message>
         <source>These are your Online addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>هذه هي عناوين Bitcion التابعة لك من أجل إستقبال الدفعات. ينصح استخدام عنوان جديد من أجل كل صفقة</translation>
+        <translation>هذه هي عناوين online التابعة لك من أجل إستقبال الدفعات. ينصح استخدام عنوان جديد من أجل كل صفقة</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -292,7 +292,7 @@
     </message>
     <message>
         <source>Online Core client</source>
-        <translation>عميل bitcion core</translation>
+        <translation>عميل online core</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -340,7 +340,7 @@
     </message>
     <message>
         <source>Show information about Online Core</source>
-        <translation>  اظهار معلومات حول bitcion core</translation>
+        <translation>  اظهار معلومات حول online core</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>

@@ -6,7 +6,7 @@ Source: http://sourceforge.net/projects/online/files/
  https://github.com/online/online
 
 Files: *
-Copyright: 2009-2012, Online Core Developers
+Copyright: 2009-2012, Bitcoin Core Developers
 License: Expat
 Comment: The Online Core Developers encompasses the current developers listed on online.org,
          as well as the numerous contributors to the project.

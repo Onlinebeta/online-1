@@ -3140,8 +3140,8 @@ Si raccomanda inoltre di configurare alertnotify in modo da ricevere notifiche d
         <translation>Connessione attraverso un proxy SOCKS5</translation>
     </message>
     <message>
-        <source>Copyright (C) 2009-%i The Online Core Developers</source>
-        <translation>Copyright (C) 2009-%i Gli sviluppatori di Online Core</translation>
+        <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
+        <translation>Copyright (C) 2009-%i Gli sviluppatori di Bitcoin Core</translation>
     </message>
     <message>
         <source>Could not parse -rpcbind value %s as network address</source>

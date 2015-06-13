@@ -4025,7 +4025,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Online Alert&quot; admin@foo.c
     </message>
     <message>
         <location line="+3"/>
-        <source>Copyright (C) 2009-%i The Online Core Developers</source>
+        <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

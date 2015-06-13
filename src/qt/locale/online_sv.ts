@@ -3104,7 +3104,7 @@ If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
 for example: alertnotify=echo %%s | mail -s "Online Alert" admin@foo.com
 </source>
-        <translation>För att använda bitconid,eller -server optionen till online-qt så mäste du sätta ett rpclösensord i konfigurationsfilen:
+        <translation>För att använda onlined,eller -server optionen till online-qt så mäste du sätta ett rpclösensord i konfigurationsfilen:
 %s
 Det är rekommenderat att använda följande slumpade lösenord:
 rpcuser=onlinerpc
@@ -3141,8 +3141,8 @@ till exempel: alertnotify=echo %%s | mail -s "Online Alert" admin@foo.com
         <translation>Anslut genom SOCKS5 proxy</translation>
     </message>
     <message>
-        <source>Copyright (C) 2009-%i The Online Core Developers</source>
-        <translation>Copyright (C) 2009-%i Online Core Utvecklarna</translation>
+        <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
+        <translation>Copyright (C) 2009-%i Bitcoin Core Utvecklarna</translation>
     </message>
     <message>
         <source>Could not parse -rpcbind value %s as network address</source>

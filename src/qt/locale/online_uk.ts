@@ -3139,7 +3139,7 @@ rpcpassword=%s
         <translation>Підключитись через SOCKS5-проксі</translation>
     </message>
     <message>
-        <source>Copyright (C) 2009-%i The Online Core Developers</source>
+        <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
         <translation>(C) 2009-%i Розробники Online Core</translation>
     </message>
     <message>

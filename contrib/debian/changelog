@@ -248,7 +248,7 @@ online (0.3.24~dfsg-1) unstable; urgency=low
       headline.
     + Avoid installing upstream README: contains no parts relevant for
       Debian usage.
-    Thanks to richard for suggestions (see bug#629443).
+    Thanks to richard for suggestions (see bug#628443).
   * Favor final releases over prereleases in rules and watch file.
     Thanks to Jan Dittberner.
   * Track -src (not -linux) tarballs in rules and watch file.

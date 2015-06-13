@@ -3158,7 +3158,7 @@ rpcpassword=%s
         <translation>通过 SOCKS5 代理连接</translation>
     </message>
     <message>
-        <source>Copyright (C) 2009-%i The Online Core Developers</source>
+        <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
         <translation>版权所有 (C) 2009-%i Online Core 开发者</translation>
     </message>
     <message>

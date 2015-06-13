@@ -3143,7 +3143,7 @@ mesela: alertnotify=echo %%s | mail -s "Online Alert" admin@foo.com
         <translation>SOCKS5 vekil sunucusu vasıtasıyla bağlan</translation>
     </message>
     <message>
-        <source>Copyright (C) 2009-%i The Online Core Developers</source>
+        <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
         <translation>Telif hakkı 2009-%i Online Çekirdeği Geliştiricileri</translation>
     </message>
     <message>
