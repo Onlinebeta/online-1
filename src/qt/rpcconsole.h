@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2014 The Bitcoin developers
+// Copyright (c) 2011-2014 The Online developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_RPCCONSOLE_H
-#define BITCOIN_QT_RPCCONSOLE_H
+#ifndef ONLINE_QT_RPCCONSOLE_H
+#define ONLINE_QT_RPCCONSOLE_H
 
 #include "guiutil.h"
 #include "peertablemodel.h"
@@ -22,7 +22,7 @@ QT_BEGIN_NAMESPACE
 class QItemSelection;
 QT_END_NAMESPACE
 
-/** Local Bitcoin RPC console. */
+/** Local Online RPC console. */
 class RPCConsole: public QDialog
 {
     Q_OBJECT
@@ -100,4 +100,4 @@ private:
     NodeId cachedNodeid;
 };
 
-#endif // BITCOIN_QT_RPCCONSOLE_H
+#endif // ONLINE_QT_RPCCONSOLE_H

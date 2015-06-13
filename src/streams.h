@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2013 The Bitcoin developers
+// Copyright (c) 2009-2013 The Online developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_STREAMS_H
-#define BITCOIN_STREAMS_H
+#ifndef ONLINE_STREAMS_H
+#define ONLINE_STREAMS_H
 
 #include "allocators.h"
 #include "serialize.h"
@@ -568,4 +568,4 @@ public:
     }
 };
 
-#endif // BITCOIN_STREAMS_H
+#endif // ONLINE_STREAMS_H

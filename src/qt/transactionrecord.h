@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2013 The Bitcoin developers
+// Copyright (c) 2011-2013 The Online developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_TRANSACTIONRECORD_H
-#define BITCOIN_QT_TRANSACTIONRECORD_H
+#ifndef ONLINE_QT_TRANSACTIONRECORD_H
+#define ONLINE_QT_TRANSACTIONRECORD_H
 
 #include "amount.h"
 #include "uint256.h"
@@ -140,4 +140,4 @@ public:
     bool statusUpdateNeeded();
 };
 
-#endif // BITCOIN_QT_TRANSACTIONRECORD_H
+#endif // ONLINE_QT_TRANSACTIONRECORD_H

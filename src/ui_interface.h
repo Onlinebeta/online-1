@@ -1,10 +1,10 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2012 The Bitcoin developers
+// Copyright (c) 2012 The Online developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_UI_INTERFACE_H
-#define BITCOIN_UI_INTERFACE_H
+#ifndef ONLINE_UI_INTERFACE_H
+#define ONLINE_UI_INTERFACE_H
 
 #include <stdint.h>
 #include <string>
@@ -112,4 +112,4 @@ inline std::string _(const char* psz)
     return rv ? (*rv) : psz;
 }
 
-#endif // BITCOIN_UI_INTERFACE_H
+#endif // ONLINE_UI_INTERFACE_H

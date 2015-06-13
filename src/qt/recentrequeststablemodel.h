@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2014 The Bitcoin developers
+// Copyright (c) 2011-2014 The Online developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_RECENTREQUESTSTABLEMODEL_H
-#define BITCOIN_QT_RECENTREQUESTSTABLEMODEL_H
+#ifndef ONLINE_QT_RECENTREQUESTSTABLEMODEL_H
+#define ONLINE_QT_RECENTREQUESTSTABLEMODEL_H
 
 #include "walletmodel.h"
 
@@ -53,7 +53,7 @@ private:
     Qt::SortOrder order;
 };
 
-/** Model for list of recently generated payment requests / bitcoin: URIs.
+/** Model for list of recently generated payment requests / online: URIs.
  * Part of wallet model.
  */
 class RecentRequestsTableModel: public QAbstractTableModel
@@ -105,4 +105,4 @@ private:
     QString getAmountTitle();
 };
 
-#endif // BITCOIN_QT_RECENTREQUESTSTABLEMODEL_H
+#endif // ONLINE_QT_RECENTREQUESTSTABLEMODEL_H

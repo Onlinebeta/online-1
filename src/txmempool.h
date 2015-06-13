@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2009-2014 The Online developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_TXMEMPOOL_H
-#define BITCOIN_TXMEMPOOL_H
+#ifndef ONLINE_TXMEMPOOL_H
+#define ONLINE_TXMEMPOOL_H
 
 #include <list>
 
@@ -173,4 +173,4 @@ public:
     bool HaveCoins(const uint256 &txid) const;
 };
 
-#endif // BITCOIN_TXMEMPOOL_H
+#endif // ONLINE_TXMEMPOOL_H

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Online
+Comment=Online P2P Cryptocurrency
+Comment[fr]=Online, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Online, eşten eşe kriptografik sanal para birimi
+Exec=online-qt %u
+Terminal=false
+Type=Application
+Icon=online128
+MimeType=x-scheme-handler/online;
+Categories=Office;Finance;

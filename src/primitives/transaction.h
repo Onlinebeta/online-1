@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2009-2014 The Online developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_PRIMITIVES_TRANSACTION_H
-#define BITCOIN_PRIMITIVES_TRANSACTION_H
+#ifndef ONLINE_PRIMITIVES_TRANSACTION_H
+#define ONLINE_PRIMITIVES_TRANSACTION_H
 
 #include "amount.h"
 #include "script/script.h"
@@ -273,4 +273,4 @@ struct CMutableTransaction
     uint256 GetHash() const;
 };
 
-#endif // BITCOIN_PRIMITIVES_TRANSACTION_H
+#endif // ONLINE_PRIMITIVES_TRANSACTION_H

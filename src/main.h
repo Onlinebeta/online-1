@@ -1,13 +1,13 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2009-2014 The Online developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_MAIN_H
-#define BITCOIN_MAIN_H
+#ifndef ONLINE_MAIN_H
+#define ONLINE_MAIN_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/bitcoin-config.h"
+#include "config/online-config.h"
 #endif
 
 #include "amount.h"
@@ -564,4 +564,4 @@ protected:
     friend void ::UnregisterAllValidationInterfaces();
 };
 
-#endif // BITCOIN_MAIN_H
+#endif // ONLINE_MAIN_H

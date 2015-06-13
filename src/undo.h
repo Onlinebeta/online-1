@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2013 The Bitcoin developers
+// Copyright (c) 2009-2013 The Online developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_UNDO_H
-#define BITCOIN_UNDO_H
+#ifndef ONLINE_UNDO_H
+#define ONLINE_UNDO_H
 
 #include "compressor.h" 
 #include "primitives/transaction.h"
@@ -68,4 +68,4 @@ public:
     }
 };
 
-#endif // BITCOIN_UNDO_H
+#endif // ONLINE_UNDO_H

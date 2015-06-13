@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2013 The Bitcoin developers
+// Copyright (c) 2011-2013 The Online developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_MACNOTIFICATIONHANDLER_H
-#define BITCOIN_QT_MACNOTIFICATIONHANDLER_H
+#ifndef ONLINE_QT_MACNOTIFICATIONHANDLER_H
+#define ONLINE_QT_MACNOTIFICATIONHANDLER_H
 
 #include <QObject>
 
@@ -27,4 +27,4 @@ public:
 };
 
 
-#endif // BITCOIN_QT_MACNOTIFICATIONHANDLER_H
+#endif // ONLINE_QT_MACNOTIFICATIONHANDLER_H

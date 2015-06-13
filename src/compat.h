@@ -1,13 +1,13 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2009-2014 The Online developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_COMPAT_H
-#define BITCOIN_COMPAT_H
+#ifndef ONLINE_COMPAT_H
+#define ONLINE_COMPAT_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/bitcoin-config.h"
+#include "config/online-config.h"
 #endif
 
 #ifdef WIN32
@@ -90,4 +90,4 @@ typedef u_int SOCKET;
 
 size_t strnlen_int( const char *start, size_t max_len);
 
-#endif // BITCOIN_COMPAT_H
+#endif // ONLINE_COMPAT_H

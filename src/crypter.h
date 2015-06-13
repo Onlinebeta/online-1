@@ -1,9 +1,9 @@
-// Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2009-2014 The Online developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_CRYPTER_H
-#define BITCOIN_CRYPTER_H
+#ifndef ONLINE_CRYPTER_H
+#define ONLINE_CRYPTER_H
 
 #include "allocators.h"
 #include "keystore.h"
@@ -196,4 +196,4 @@ public:
     boost::signals2::signal<void (CCryptoKeyStore* wallet)> NotifyStatusChanged;
 };
 
-#endif // BITCOIN_CRYPTER_H
+#endif // ONLINE_CRYPTER_H

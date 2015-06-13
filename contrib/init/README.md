@@ -1,9 +1,9 @@
 Sample configuration files for:
 
-SystemD: bitcoind.service
-Upstart: bitcoind.conf
-OpenRC:  bitcoind.openrc
-         bitcoind.openrcconf
+SystemD: onlined.service
+Upstart: onlined.conf
+OpenRC:  onlined.openrc
+         onlined.openrcconf
 
 have been made available to assist packagers in creating node packages here.
 

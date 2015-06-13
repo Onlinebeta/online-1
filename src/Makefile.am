@@ -17,19 +17,19 @@ $(LIBLEVELDB) $(LIBMEMENV):
           OPT="$(CXXFLAGS) $(CPPFLAGS)"
 endif
 
-BITCOIN_CONFIG_INCLUDES=-I$(builddir)/config
-BITCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
+ONLINE_CONFIG_INCLUDES=-I$(builddir)/config
+ONLINE_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
 
-BITCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
+ONLINE_INCLUDES += -I$(srcdir)/secp256k1/include
 
-LIBBITCOIN_SERVER=libbitcoin_server.a
-LIBBITCOIN_WALLET=libbitcoin_wallet.a
-LIBBITCOIN_COMMON=libbitcoin_common.a
-LIBBITCOIN_CLI=libbitcoin_cli.a
-LIBBITCOIN_UTIL=libbitcoin_util.a
-LIBBITCOIN_CRYPTO=crypto/libbitcoin_crypto.a
-LIBBITCOIN_UNIVALUE=univalue/libbitcoin_univalue.a
-LIBBITCOINQT=qt/libbitcoinqt.a
+LIBONLINE_SERVER=libonline_server.a
+LIBONLINE_WALLET=libonline_wallet.a
+LIBONLINE_COMMON=libonline_common.a
+LIBONLINE_CLI=libonline_cli.a
+LIBONLINE_UTIL=libonline_util.a
+LIBONLINE_CRYPTO=crypto/libonline_crypto.a
+LIBONLINE_UNIVALUE=univalue/libonline_univalue.a
+LIBONLINEQT=qt/libonlineqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
@@ -38,38 +38,38 @@ $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
 # Make is not made aware of per-object dependencies to avoid limiting building parallelization
 # But to build the less dependent modules first, we manually select their order here:
 EXTRA_LIBRARIES = \
-  crypto/libbitcoin_crypto.a \
-  libbitcoin_util.a \
-  libbitcoin_common.a \
-  univalue/libbitcoin_univalue.a \
-  libbitcoin_server.a \
-  libbitcoin_cli.a
+  crypto/libonline_crypto.a \
+  libonline_util.a \
+  libonline_common.a \
+  univalue/libonline_univalue.a \
+  libonline_server.a \
+  libonline_cli.a
 if ENABLE_WALLET
-BITCOIN_INCLUDES += $(BDB_CPPFLAGS)
-EXTRA_LIBRARIES += libbitcoin_wallet.a
+ONLINE_INCLUDES += $(BDB_CPPFLAGS)
+EXTRA_LIBRARIES += libonline_wallet.a
 endif
 
-if BUILD_BITCOIN_LIBS
-lib_LTLIBRARIES = libbitcoinconsensus.la
-LIBBITCOIN_CONSENSUS=libbitcoinconsensus.la
+if BUILD_ONLINE_LIBS
+lib_LTLIBRARIES = libonlineconsensus.la
+LIBONLINE_CONSENSUS=libonlineconsensus.la
 else
-LIBBITCOIN_CONSENSUS=
+LIBONLINE_CONSENSUS=
 endif
 
 bin_PROGRAMS =
 TESTS =
 
-if BUILD_BITCOIND
-  bin_PROGRAMS += bitcoind
+if BUILD_ONLINED
+  bin_PROGRAMS += onlined
 endif
 
-if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += bitcoin-cli bitcoin-tx
+if BUILD_ONLINE_UTILS
+  bin_PROGRAMS += online-cli online-tx
 endif
 
 .PHONY: FORCE
-# bitcoin core #
-BITCOIN_CORE_H = \
+# online core #
+ONLINE_CORE_H = \
   addrman.h \
   alert.h \
   allocators.h \
@@ -156,11 +156,11 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh $(abs_top_builddir)/src/obj/build.h \
 	  $(abs_top_srcdir)
-libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
+libonline_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between bitcoind and bitcoin-qt
-libbitcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS)
-libbitcoin_server_a_SOURCES = \
+# server: shared between onlined and online-qt
+libonline_server_a_CPPFLAGS = $(ONLINE_INCLUDES) $(MINIUPNPC_CPPFLAGS)
+libonline_server_a_SOURCES = \
   addrman.cpp \
   alert.cpp \
   bloom.cpp \
@@ -186,12 +186,12 @@ libbitcoin_server_a_SOURCES = \
   txdb.cpp \
   txmempool.cpp \
   $(JSON_H) \
-  $(BITCOIN_CORE_H)
+  $(ONLINE_CORE_H)
 
-# wallet: shared between bitcoind and bitcoin-qt, but only linked
+# wallet: shared between onlined and online-qt, but only linked
 # when wallet enabled
-libbitcoin_wallet_a_CPPFLAGS = $(BITCOIN_INCLUDES)
-libbitcoin_wallet_a_SOURCES = \
+libonline_wallet_a_CPPFLAGS = $(ONLINE_INCLUDES)
+libonline_wallet_a_SOURCES = \
   db.cpp \
   crypter.cpp \
   rpcdump.cpp \
@@ -199,11 +199,11 @@ libbitcoin_wallet_a_SOURCES = \
   wallet.cpp \
   wallet_ismine.cpp \
   walletdb.cpp \
-  $(BITCOIN_CORE_H)
+  $(ONLINE_CORE_H)
 
 # crypto primitives library
-crypto_libbitcoin_crypto_a_CPPFLAGS = $(BITCOIN_CONFIG_INCLUDES)
-crypto_libbitcoin_crypto_a_SOURCES = \
+crypto_libonline_crypto_a_CPPFLAGS = $(ONLINE_CONFIG_INCLUDES)
+crypto_libonline_crypto_a_SOURCES = \
   crypto/sha1.cpp \
   crypto/sha256.cpp \
   crypto/sha512.cpp \
@@ -221,16 +221,16 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/ripemd160.h
 
 # univalue JSON library
-univalue_libbitcoin_univalue_a_SOURCES = \
+univalue_libonline_univalue_a_SOURCES = \
   univalue/univalue.cpp \
   univalue/univalue_read.cpp \
   univalue/univalue_write.cpp \
   univalue/univalue_escapes.h \
   univalue/univalue.h
 
-# common: shared between bitcoind, and bitcoin-qt and non-server tools
-libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
-libbitcoin_common_a_SOURCES = \
+# common: shared between onlined, and online-qt and non-server tools
+libonline_common_a_CPPFLAGS = $(ONLINE_INCLUDES)
+libonline_common_a_SOURCES = \
   allocators.cpp \
   amount.cpp \
   base58.cpp \
@@ -254,13 +254,13 @@ libbitcoin_common_a_SOURCES = \
   script/sign.cpp \
   script/standard.cpp \
   script/script_error.cpp \
-  $(BITCOIN_CORE_H)
+  $(ONLINE_CORE_H)
 
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libbitcoin_util_a_CPPFLAGS = $(BITCOIN_INCLUDES)
-libbitcoin_util_a_SOURCES = \
+libonline_util_a_CPPFLAGS = $(ONLINE_INCLUDES)
+libonline_util_a_SOURCES = \
   compat/strnlen.cpp \
   compat/glibc_sanity.cpp \
   compat/glibcxx_sanity.cpp \
@@ -274,84 +274,84 @@ libbitcoin_util_a_SOURCES = \
   utilstrencodings.cpp \
   utilmoneystr.cpp \
   utiltime.cpp \
-  $(BITCOIN_CORE_H)
+  $(ONLINE_CORE_H)
 
 if GLIBC_BACK_COMPAT
-libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
-libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
+libonline_util_a_SOURCES += compat/glibc_compat.cpp
+libonline_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-# cli: shared between bitcoin-cli and bitcoin-qt
-libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
-libbitcoin_cli_a_SOURCES = \
+# cli: shared between online-cli and online-qt
+libonline_cli_a_CPPFLAGS = $(ONLINE_INCLUDES)
+libonline_cli_a_SOURCES = \
   rpcclient.cpp \
-  $(BITCOIN_CORE_H)
+  $(ONLINE_CORE_H)
 
-nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
+nodist_libonline_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# bitcoind binary #
-bitcoind_LDADD = \
-  $(LIBBITCOIN_SERVER) \
-  $(LIBBITCOIN_COMMON) \
-  $(LIBBITCOIN_UNIVALUE) \
-  $(LIBBITCOIN_UTIL) \
-  $(LIBBITCOIN_CRYPTO) \
+# onlined binary #
+onlined_LDADD = \
+  $(LIBONLINE_SERVER) \
+  $(LIBONLINE_COMMON) \
+  $(LIBONLINE_UNIVALUE) \
+  $(LIBONLINE_UTIL) \
+  $(LIBONLINE_CRYPTO) \
   $(LIBLEVELDB) \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
 if ENABLE_WALLET
-bitcoind_LDADD += libbitcoin_wallet.a
+onlined_LDADD += libonline_wallet.a
 endif
-bitcoind_SOURCES = bitcoind.cpp
+onlined_SOURCES = onlined.cpp
 #
 
 if TARGET_WINDOWS
-bitcoind_SOURCES += bitcoind-res.rc
+onlined_SOURCES += onlined-res.rc
 endif
 
-bitcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
-bitcoind_CPPFLAGS = $(BITCOIN_INCLUDES)
-bitcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+onlined_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+onlined_CPPFLAGS = $(ONLINE_INCLUDES)
+onlined_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
-# bitcoin-cli binary #
-bitcoin_cli_LDADD = \
-  $(LIBBITCOIN_CLI) \
-  $(LIBBITCOIN_UTIL) \
+# online-cli binary #
+online_cli_LDADD = \
+  $(LIBONLINE_CLI) \
+  $(LIBONLINE_UTIL) \
   $(BOOST_LIBS) \
   $(SSL_LIBS) \
   $(CRYPTO_LIBS)
 
-bitcoin_cli_SOURCES = \
-  bitcoin-cli.cpp
+online_cli_SOURCES = \
+  online-cli.cpp
 
-bitcoin_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
+online_cli_CPPFLAGS = $(ONLINE_INCLUDES)
 #
 
-# bitcoin-tx binary #
-bitcoin_tx_LDADD = \
-  $(LIBBITCOIN_UNIVALUE) \
-  $(LIBBITCOIN_COMMON) \
-  $(LIBBITCOIN_UTIL) \
-  $(LIBBITCOIN_CRYPTO) \
+# online-tx binary #
+online_tx_LDADD = \
+  $(LIBONLINE_UNIVALUE) \
+  $(LIBONLINE_COMMON) \
+  $(LIBONLINE_UTIL) \
+  $(LIBONLINE_CRYPTO) \
   $(LIBSECP256K1) \
   $(BOOST_LIBS) \
   $(CRYPTO_LIBS)
 
-bitcoin_tx_SOURCES = bitcoin-tx.cpp
-bitcoin_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+online_tx_SOURCES = online-tx.cpp
+online_tx_CPPFLAGS = $(ONLINE_INCLUDES)
 #
-bitcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+online_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-bitcoin_cli_SOURCES += bitcoin-cli-res.rc
+online_cli_SOURCES += online-cli-res.rc
 endif
-bitcoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+online_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
-if BUILD_BITCOIN_LIBS
-include_HEADERS = script/bitcoinconsensus.h
-libbitcoinconsensus_la_SOURCES = \
+if BUILD_ONLINE_LIBS
+include_HEADERS = script/onlineconsensus.h
+libonlineconsensus_la_SOURCES = \
   primitives/transaction.cpp \
   crypto/hmac_sha512.cpp \
   crypto/sha1.cpp \
@@ -364,20 +364,20 @@ libbitcoinconsensus_la_SOURCES = \
   pubkey.cpp \
   script/script.cpp \
   script/interpreter.cpp \
-  script/bitcoinconsensus.cpp \
+  script/onlineconsensus.cpp \
   uint256.cpp \
   utilstrencodings.cpp
 
 if GLIBC_BACK_COMPAT
-  libbitcoinconsensus_la_SOURCES += compat/glibc_compat.cpp
-  libbitcoinconsensus_la_SOURCES += compat/glibcxx_compat.cpp
+  libonlineconsensus_la_SOURCES += compat/glibc_compat.cpp
+  libonlineconsensus_la_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-libbitcoinconsensus_la_LDFLAGS = -no-undefined $(RELDFLAGS)
-libbitcoinconsensus_la_LIBADD = $(CRYPTO_LIBS)
-libbitcoinconsensus_la_CPPFLAGS = $(CRYPTO_CFLAGS) -I$(builddir)/obj -DBUILD_BITCOIN_INTERNAL
+libonlineconsensus_la_LDFLAGS = -no-undefined $(RELDFLAGS)
+libonlineconsensus_la_LIBADD = $(CRYPTO_LIBS)
+libonlineconsensus_la_CPPFLAGS = $(CRYPTO_CFLAGS) -I$(builddir)/obj -DBUILD_ONLINE_INTERNAL
 if USE_LIBSECP256K1
-libbitcoinconsensus_la_LIBADD += secp256k1/libsecp256k1.la
+libonlineconsensus_la_LIBADD += secp256k1/libsecp256k1.la
 endif
 endif
 
