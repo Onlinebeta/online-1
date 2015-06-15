@@ -54,7 +54,7 @@ static void convertSeed6(std::vector<CAddress> &vSeedsOut, const SeedSpec6 *data
  */
 static Checkpoints::MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
-        ( 0, uint256("0x0000000018c744c28ca238d51c58a36092f931a4c2777c293b1e82200981fe94"))
+        ( 0, uint256("00000000e9d81b2c18439736927d4d4c7819c286203301f57d2ba8d599432ca4"))
         ;
 static const Checkpoints::CCheckpointData data = {
         &mapCheckpoints,
@@ -66,22 +66,22 @@ static const Checkpoints::CCheckpointData data = {
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
         boost::assign::map_list_of
-        ( 546, uint256("0x000000002fc0bb91bcc8e21f229ce235a8cc561c54387d167eb5da494bb44005"))
+        ( 546, uint256("0x00000000264c292656aabbbd5ad0413c6f54091823188f78547b236c02a7fc02"))
         ;
 static const Checkpoints::CCheckpointData dataTestnet = {
         &mapCheckpointsTestnet,
-        1433927760,
+        1434332874,
         0,
         250
     };
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
         boost::assign::map_list_of
-        ( 0, uint256("0x000000008f21f4ace807b0c4af60e40f8ce4530af6f1af34c19a0498b8d5363a"))
+        ( 0, uint256("0x0cf6f07bfff6f917b707ccd94ca1ce7d9dd41e3e7e6e755b1b866958ebd66479"))
         ;
 static const Checkpoints::CCheckpointData dataRegtest = {
         &mapCheckpointsRegtest,
-        1434300267,
+        1434332874,
         0,
         0
     };
@@ -134,24 +134,11 @@ public:
         genesis.nVersion = 1;
         genesis.nTime    = 1433927760;
         genesis.nBits    = 0x1d00ffff;
-        genesis.nNonce   = 2736776808;
-
-	hashGenesisBlock = uint256("0x01");
-	if (true && genesis.GetHash() != hashGenesisBlock)
-        {
-            LogPrintf("recalculating params for mainnet.\n");
-            LogPrintf("old mainnet genesis nonce: %s\n", genesis.nNonce);
-            LogPrintf("old mainnet genesis hash:  %s\n", hashGenesisBlock.ToString().c_str());
-            // deliberately empty for loop finds nonce value.
-            for(genesis.nNonce = 0; genesis.GetHash() > bnProofOfWorkLimit; genesis.nNonce++){ } 
-            LogPrintf("new mainnet genesis merkle root: %s\n", genesis.hashMerkleRoot.ToString().c_str());
-            LogPrintf("new mainnet genesis nonce: %s\n", genesis.nNonce);
-            LogPrintf("new mainnet genesis hash: %s\n", genesis.GetHash().ToString().c_str());
-        }
+        genesis.nNonce   = 238497945;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x0000000018c744c28ca238d51c58a36092f931a4c2777c293b1e82200981fe94"));
-        assert(genesis.hashMerkleRoot == uint256("0xae89543039ce8312509b878979c4d1def7200e79ed4995d0f745901c0d4fb9a5"));
+        assert(hashGenesisBlock == uint256("0x00000000e9d81b2c18439736927d4d4c7819c286203301f57d2ba8d599432ca4"));
+        assert(genesis.hashMerkleRoot == uint256("0xed9e82c955bc34b4cd46dbdeb49a7da330e16bce87f5a0dc04b9cfcea4228fc6"));
 
         //vSeeds.push_back(CDNSSeedData("online.sipa.be", "seed.online.sipa.be"));
         vSeeds.clear();
@@ -203,10 +190,11 @@ public:
         nTargetTimespan = 14 * 24 * 60 * 60; //! two weeks
         nTargetSpacing = 10 * 60;
 
-        genesis.nTime = 1433927760;
-        genesis.nNonce = 414098458;
+        genesis.nTime = 1434332874;
+        genesis.nNonce = 1034370720;
+
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000000002fc0bb91bcc8e21f229ce235a8cc561c54387d167eb5da494bb44005"));
+        assert(hashGenesisBlock == uint256("0x00000000264c292656aabbbd5ad0413c6f54091823188f78547b236c02a7fc02"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -256,10 +244,24 @@ public:
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         genesis.nTime = 1434300267;
         genesis.nBits = 0x207fffff;
-        genesis.nNonce = 2768939485;
+        genesis.nNonce = 2;
+
+	//hashGenesisBlock = uint256("0x01");
+	if (false && genesis.GetHash() != hashGenesisBlock)
+        {
+	    tfm::printf("%s\n", "recalculating regtest stuff");
+            tfm::printf("old regtest genesis nonce: %u\n", genesis.nNonce);
+            tfm::printf("old regtest genesis hash:  %s\n", hashGenesisBlock.ToString().c_str());
+            // deliberately empty for loop finds nonce value.
+            for(genesis.nNonce = 0; genesis.GetHash() > bnProofOfWorkLimit; genesis.nNonce++){ } 
+            tfm::printf("new regtest genesis merkle root: %s\n", genesis.hashMerkleRoot.ToString().c_str());
+            tfm::printf("new regtest genesis nonce: %u\n", genesis.nNonce);
+            tfm::printf("new regtest genesis hash: %s\n", genesis.GetHash().ToString().c_str());
+        }
+
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 18444;
-        assert(hashGenesisBlock == uint256("0x000000008f21f4ace807b0c4af60e40f8ce4530af6f1af34c19a0498b8d5363a"));
+        assert(hashGenesisBlock == uint256("0x0cf6f07bfff6f917b707ccd94ca1ce7d9dd41e3e7e6e755b1b866958ebd66479"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();  //! Regtest mode doesn't have any DNS seeds.
