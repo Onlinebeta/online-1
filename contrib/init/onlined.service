@@ -1,0 +1,22 @@
+[Unit]
+Description=Online's distributed currency daemon
+After=network.target
+
+[Service]
+User=online
+Group=online
+
+Type=forking
+PIDFile=/var/lib/onlined/onlined.pid
+ExecStart=/usr/bin/onlined -daemon -pid=/var/lib/onlined/onlined.pid \
+-conf=/etc/online/online.conf -datadir=/var/lib/onlined -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

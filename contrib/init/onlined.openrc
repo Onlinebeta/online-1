@@ -1,0 +1,88 @@
+#!/sbin/runscript
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/online/.online" ]; then
+	ONLINED_DEFAULT_DATADIR="/var/lib/online/.online"
+else
+	ONLINED_DEFAULT_DATADIR="/var/lib/onlined"
+fi
+
+ONLINED_CONFIGFILE=${ONLINED_CONFIGFILE:-/etc/online/online.conf}
+ONLINED_PIDDIR=${ONLINED_PIDDIR:-/var/run/onlined}
+ONLINED_PIDFILE=${ONLINED_PIDFILE:-${ONLINED_PIDDIR}/onlined.pid}
+ONLINED_DATADIR=${ONLINED_DATADIR:-${ONLINED_DEFAULT_DATADIR}}
+ONLINED_USER=${ONLINED_USER:-${ONLINE_USER:-online}}
+ONLINED_GROUP=${ONLINED_GROUP:-online}
+ONLINED_BIN=${ONLINED_BIN:-/usr/bin/onlined}
+ONLINED_NICE=${ONLINED_NICE:-${NICELEVEL:-0}}
+ONLINED_OPTS="${ONLINED_OPTS:-${ONLINE_OPTS}}"
+
+name="Online Core Daemon"
+description="Online cryptocurrency P2P network daemon"
+
+command="/usr/bin/onlined"
+command_args="-pid=\"${ONLINED_PIDFILE}\" \
+		-conf=\"${ONLINED_CONFIGFILE}\" \
+		-datadir=\"${ONLINED_DATADIR}\" \
+		-daemon \
+		${ONLINED_OPTS}"
+
+required_files="${ONLINED_CONFIGFILE}"
+start_stop_daemon_args="-u ${ONLINED_USER} \
+			-N ${ONLINED_NICE} -w 2000"
+pidfile="${ONLINED_PIDFILE}"
+retry=60
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${ONLINED_USER}:${ONLINED_GROUP}" \
+	"${ONLINED_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${ONLINED_USER}:${ONLINED_GROUP}" \
+	"${ONLINED_PIDDIR}"
+
+	checkpath -f \
+	-o ${ONLINED_USER}:${ONLINED_GROUP} \
+	-m 0660 \
+	${ONLINED_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${ONLINED_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run onlined."
+		eerror "The setting must appear in ${ONLINED_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following"
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is also recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"Online Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}

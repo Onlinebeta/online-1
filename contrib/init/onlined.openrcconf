@@ -1,0 +1,27 @@
+# /etc/conf.d/onlined: config file for /etc/init.d/onlined
+
+# Config file location
+#ONLINED_CONFIGFILE="/etc/online/online.conf"
+
+# What directory to write pidfile to?  (created and owned by $ONLINED_USER)
+#ONLINED_PIDDIR="/var/run/onlined"
+
+# What filename to give the pidfile
+#ONLINED_PIDFILE="${ONLINED_PIDDIR}/onlined.pid"
+
+# Where to write onlined data (be mindful that the blockchain is large)
+#ONLINED_DATADIR="/var/lib/onlined"
+
+# User and group to own onlined process
+#ONLINED_USER="online"
+#ONLINED_GROUP="online"
+
+# Path to onlined executable
+#ONLINED_BIN="/usr/bin/onlined"
+
+# Nice value to run onlined under
+#ONLINED_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+ONLINED_OPTS="-disablewallet"
+

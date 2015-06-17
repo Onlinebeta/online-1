@@ -81,8 +81,8 @@ public:
         genesis.nNonce   = 238497945;
 
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256("0x00000000e9d81b2c18439736927d4d4c7819c286203301f57d2ba8d599432ca4"));
-        assert(genesis.hashMerkleRoot == uint256("0xed9e82c955bc34b4cd46dbdeb49a7da330e16bce87f5a0dc04b9cfcea4228fc6"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00000000e9d81b2c18439736927d4d4c7819c286203301f57d2ba8d599432ca4"));
+        assert(genesis.hashMerkleRoot == uint256S("0xed9e82c955bc34b4cd46dbdeb49a7da330e16bce87f5a0dc04b9cfcea4228fc6"));
 
         //vSeeds.push_back(CDNSSeedData("online.sipa.be", "seed.online.sipa.be"));
         vSeeds.clear();
@@ -105,7 +105,7 @@ public:
 
         checkpointData = (Checkpoints::CCheckpointData) {
             boost::assign::map_list_of
-            ( 0, uint256("00000000e9d81b2c18439736927d4d4c7819c286203301f57d2ba8d599432ca4")),
+            ( 0, uint256S("00000000e9d81b2c18439736927d4d4c7819c286203301f57d2ba8d599432ca4")),
             1433927760, // * UNIX timestamp of last checkpoint block
             0,   // * total number of transactions between genesis and last checkpoint
                         //   (the tx=... number in the SetBestChain debug.log lines)
@@ -139,7 +139,7 @@ public:
         genesis.nNonce = 1034370720;
 
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256("0x00000000264c292656aabbbd5ad0413c6f54091823188f78547b236c02a7fc02"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00000000264c292656aabbbd5ad0413c6f54091823188f78547b236c02a7fc02"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
