@@ -16,7 +16,7 @@
 #include "serialize.h"
 #include "util.h"
 
-#include "test/test_bitcoin.h"
+#include "test/test_online.h"
 
 #include <stdint.h>
 

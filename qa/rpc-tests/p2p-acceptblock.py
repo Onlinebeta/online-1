@@ -5,7 +5,7 @@
 #
 
 from test_framework.mininode import *
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import OnlineTestFramework
 from test_framework.util import *
 import time
 from test_framework.blocktools import create_block, create_coinbase
@@ -82,11 +82,11 @@ class TestNode(NodeConnCB):
     def send_message(self, message):
         self.connection.send_message(message)
 
-class AcceptBlockTest(BitcoinTestFramework):
+class AcceptBlockTest(OnlineTestFramework):
     def add_options(self, parser):
         parser.add_option("--testbinary", dest="testbinary",
-                          default=os.getenv("BITCOIND", "bitcoind"),
-                          help="bitcoind binary to test")
+                          default=os.getenv("ONLINED", "onlined"),
+                          help="onlined binary to test")
 
     def setup_chain(self):
         initialize_chain_clean(self.options.tmpdir, 2)

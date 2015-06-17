@@ -8,7 +8,7 @@
 #include "base58.h"
 #include "netbase.h"
 
-#include "test/test_bitcoin.h"
+#include "test/test_online.h"
 
 #include <boost/algorithm/string.hpp>
 #include <boost/test/unit_test.hpp>
@@ -153,7 +153,7 @@ BOOST_AUTO_TEST_CASE(json_parse_errors)
     // Invalid, trailing garbage
     BOOST_CHECK_EQUAL(read_string(std::string("1.0sds"), value), false);
     BOOST_CHECK_EQUAL(read_string(std::string("1.0]"), value), false);
-    // BTC addresses should fail parsing
+    // ONE addresses should fail parsing
     BOOST_CHECK_EQUAL(read_string(std::string("175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W"), value), false);
     BOOST_CHECK_EQUAL(read_string(std::string("3J98t1WpEZ73CNmQviecrnyiWrnqRhWNL"), value), false);
 }

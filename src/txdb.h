@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_TXDB_H
-#define BITCOIN_TXDB_H
+#ifndef ONLINE_TXDB_H
+#define ONLINE_TXDB_H
 
 #include "coins.h"
 #include "leveldbwrapper.h"
@@ -62,4 +62,4 @@ public:
     bool LoadBlockIndexGuts();
 };
 
-#endif // BITCOIN_TXDB_H
+#endif // ONLINE_TXDB_H

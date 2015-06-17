@@ -6,11 +6,11 @@
 #
 # Test -reindex with CheckBlockIndex
 #
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import OnlineTestFramework
 from test_framework.util import *
 import os.path
 
-class ReindexTest(BitcoinTestFramework):
+class ReindexTest(OnlineTestFramework):
 
     def setup_chain(self):
         print("Initializing test directory "+self.options.tmpdir)
@@ -24,7 +24,7 @@ class ReindexTest(BitcoinTestFramework):
     def run_test(self):
         self.nodes[0].generate(3)
         stop_node(self.nodes[0], 0)
-        wait_bitcoinds()
+        wait_onlineds()
         self.nodes[0]=start_node(0, self.options.tmpdir, ["-debug", "-reindex", "-checkblockindex=1"])
         assert_equal(self.nodes[0].getblockcount(), 3)
         print "Success"

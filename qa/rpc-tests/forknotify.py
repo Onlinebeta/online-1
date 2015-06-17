@@ -7,12 +7,12 @@
 # Test -alertnotify 
 #
 
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import OnlineTestFramework
 from test_framework.util import *
 import os
 import shutil
 
-class ForkNotifyTest(BitcoinTestFramework):
+class ForkNotifyTest(OnlineTestFramework):
 
     alert_filename = None  # Set by setup_network
 
