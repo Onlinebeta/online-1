@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_AMOUNT_H
-#define BITCOIN_AMOUNT_H
+#ifndef ONLINE_AMOUNT_H
+#define ONLINE_AMOUNT_H
 
 #include "serialize.h"
 
@@ -18,8 +18,8 @@ static const CAmount CENT = 1000000;
 
 /** No amount larger than this (in satoshi) is valid.
  *
- * Note that this constant is *not* the total money supply, which in Bitcoin
- * currently happens to be less than 21,000,000 BTC for various reasons, but
+ * Note that this constant is *not* the total money supply, which in Online
+ * currently happens to be less than 21,000,000 ONE for various reasons, but
  * rather a sanity check. As this sanity check is used by consensus-critical
  * validation code, the exact value of the MAX_MONEY constant is consensus
  * critical; in unusual circumstances like a(nother) overflow bug that allowed
@@ -59,4 +59,4 @@ public:
     }
 };
 
-#endif //  BITCOIN_AMOUNT_H
+#endif //  ONLINE_AMOUNT_H

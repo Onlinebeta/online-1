@@ -8,13 +8,13 @@
 # the blockchain is re-organized.
 #
 
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import OnlineTestFramework
 from test_framework.util import *
 import os
 import shutil
 
 # Create one-input, one-output, no-fee transaction:
-class MempoolCoinbaseTest(BitcoinTestFramework):
+class MempoolCoinbaseTest(OnlineTestFramework):
 
     def setup_network(self):
         # Just need one node for this test

@@ -142,10 +142,10 @@ unauthenticated access to public node data.
 It is served on the same port as RPC, but does not need a password, and uses
 plain HTTP instead of JSON-RPC.
 
-Assuming a local RPC server running on port 8332, it is possible to request:
-- Blocks: http://localhost:8332/rest/block/*HASH*.*EXT*
-- Blocks without transactions: http://localhost:8332/rest/block/notxdetails/*HASH*.*EXT*
-- Transactions (requires `-txindex`): http://localhost:8332/rest/tx/*HASH*.*EXT*
+Assuming a local RPC server running on port 8443, it is possible to request:
+- Blocks: http://localhost:8443/rest/block/*HASH*.*EXT*
+- Blocks without transactions: http://localhost:8443/rest/block/notxdetails/*HASH*.*EXT*
+- Transactions (requires `-txindex`): http://localhost:8443/rest/tx/*HASH*.*EXT*
 
 In every case, *EXT* can be `bin` (for raw binary data), `hex` (for hex-encoded
 binary) or `json`.
@@ -199,7 +199,7 @@ Watch-only wallet support
 The wallet can now track transactions to and from wallets for which you know
 all addresses (or scripts), even without the private keys.
 
-This can be used to track payments without needing the private keys online on a
+This can be used to track payments without needing the private keys bitcoin on a
 possibly vulnerable system. In addition, it can help for (manual) construction
 of multisig transactions where you are only one of the signers.
 

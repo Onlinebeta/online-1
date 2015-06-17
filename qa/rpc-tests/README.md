@@ -1,9 +1,9 @@
 Regression tests of RPC interface
 =================================
 
-### [python-bitcoinrpc](https://github.com/jgarzik/python-bitcoinrpc)
-Git subtree of [https://github.com/jgarzik/python-bitcoinrpc](https://github.com/jgarzik/python-bitcoinrpc).
-Changes to python-bitcoinrpc should be made upstream, and then
+### [python-onlinerpc](https://github.com/jgarzik/python-onlinerpc)
+Git subtree of [https://github.com/jgarzik/python-onlinerpc](https://github.com/jgarzik/python-onlinerpc).
+Changes to python-onlinerpc should be made upstream, and then
 pulled here using git subtree.
 
 ### [test_framework/test_framework.py](test_framework/test_framework.py)
@@ -27,9 +27,9 @@ Possible options:
 
 ```
 -h, --help       show this help message and exit
-  --nocleanup      Leave bitcoinds and test.* datadir on exit or error
-  --noshutdown     Don't stop bitcoinds after the test execution
-  --srcdir=SRCDIR  Source directory containing bitcoind/bitcoin-cli (default:
+  --nocleanup      Leave onlineds and test.* datadir on exit or error
+  --noshutdown     Don't stop onlineds after the test execution
+  --srcdir=SRCDIR  Source directory containing onlined/online-cli (default:
                    ../../src)
   --tmpdir=TMPDIR  Root directory for datadirs
   --tracerpc       Print out all RPC calls as they are made
@@ -40,7 +40,7 @@ If you set the environment variable `PYTHON_DEBUG=1` you will get some debug out
 A 200-block -regtest blockchain and wallets for four nodes
 is created the first time a regression test is run and
 is stored in the cache/ directory. Each node has 25 mature
-blocks (25*50=1250 BTC) in its wallet.
+blocks (25*50=1250 ONE) in its wallet.
 
 After the first run, the cache/ blockchain and wallets are
 copied into a temporary directory and used as the initial
@@ -51,5 +51,5 @@ to recover with:
 
 ```bash
 rm -rf cache
-killall bitcoind
+killall onlined
 ```

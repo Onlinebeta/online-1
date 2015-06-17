@@ -8,7 +8,7 @@
 #
 
 
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import OnlineTestFramework
 from test_framework.util import *
 from struct import *
 import binascii
@@ -41,7 +41,7 @@ def http_get_call(host, port, path, requestdata = '', response_object = 0):
 
     return conn.getresponse().read()
 
-class RESTTest (BitcoinTestFramework):
+class RESTTest (OnlineTestFramework):
     FORMAT_SEPARATOR = "."
 
     def setup_chain(self):

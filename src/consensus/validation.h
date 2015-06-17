@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_CONSENSUS_VALIDATION_H
-#define BITCOIN_CONSENSUS_VALIDATION_H
+#ifndef ONLINE_CONSENSUS_VALIDATION_H
+#define ONLINE_CONSENSUS_VALIDATION_H
 
 #include <string>
 
@@ -77,4 +77,4 @@ public:
     std::string GetRejectReason() const { return strRejectReason; }
 };
 
-#endif // BITCOIN_CONSENSUS_VALIDATION_H
+#endif // ONLINE_CONSENSUS_VALIDATION_H

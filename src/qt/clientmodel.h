@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_CLIENTMODEL_H
-#define BITCOIN_QT_CLIENTMODEL_H
+#ifndef ONLINE_QT_CLIENTMODEL_H
+#define ONLINE_QT_CLIENTMODEL_H
 
 #include <QObject>
 #include <QDateTime>
@@ -33,7 +33,7 @@ enum NumConnections {
     CONNECTIONS_ALL  = (CONNECTIONS_IN | CONNECTIONS_OUT),
 };
 
-/** Model for Bitcoin network client. */
+/** Model for Online network client. */
 class ClientModel : public QObject
 {
     Q_OBJECT
@@ -100,4 +100,4 @@ public slots:
     void updateAlert(const QString &hash, int status);
 };
 
-#endif // BITCOIN_QT_CLIENTMODEL_H
+#endif // ONLINE_QT_CLIENTMODEL_H

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_SCICON_H
-#define BITCOIN_QT_SCICON_H
+#ifndef ONLINE_QT_SCICON_H
+#define ONLINE_QT_SCICON_H
 
 #include <QtCore>
 
@@ -21,4 +21,4 @@ QIcon SingleColorIcon(const QString& filename);
 QIcon TextColorIcon(const QIcon&);
 QIcon TextColorIcon(const QString& filename);
 
-#endif // BITCOIN_QT_SCICON_H
+#endif // ONLINE_QT_SCICON_H
