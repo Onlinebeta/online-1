@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# This is a thin wrapper around online-cli that strips the Windows-style EOLs
+# from the output if present. It is necessary when using online-cli.exe on
+# Linux since shells will interpret the line-endings as part of the result.
+
+CURDIR=$(cd $(dirname "$0"); pwd)
+# Get BUILDDIR and REAL_ONLINED
+
+# Grab the value of $REAL_ONLINECLI which may be online-cli.exe.
+. "${CURDIR}/tests-config.sh"
+
+"${REAL_ONLINECLI}" "$@" | sed 's/\r//'
